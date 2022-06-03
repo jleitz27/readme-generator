@@ -5,7 +5,7 @@ const generateMarkdown = require('./utils/generateMarkdown');
 
 
 // array of questions for user input
-const promptQuestions = () => {
+function promptQuestions(){
     return inquirer.prompt([
         {
             type: "input",
@@ -22,12 +22,12 @@ const promptQuestions = () => {
             name: "license",
             message: "Chose the appropriate license for this project: ",
             choices: [
-                "Apache",
+                "Apache 2.0",
                 "Academic",
                 "GNU",
                 "ISC",
                 "MIT",
-                "Mozilla",
+                "Mozilla Pub",
                 "Open"
             ]
         },
@@ -44,17 +44,19 @@ const promptQuestions = () => {
         {
             type: "input",
             name: "usage",
-            message: "Please provide the project usage"
+            message: "Provide project usage information"
         },
         {
-            type: "input",
-            name: "licence",
-            message: "Please provide the project licence or your badge link"
+            type: "confirm",
+            name: "confirmContribute",
+            message: "Would you like others to contribute to this project?",
+            default: false
         },
         {
-            type: "input",
-            name: "contributing",
-            message: "Please provide who contributed to this project"
+            type: 'input',
+            name: 'contribute',
+            message: 'Provide contribution guidelines for this project'
+
         },
         {
             type: "input",
@@ -81,7 +83,10 @@ const promptQuestions = () => {
             },
         },
     ]);
-};
+} 
+
+
+
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
@@ -92,9 +97,10 @@ function writeToFile(fileName, data) {
 
 // TODO: Create a function to initialize app
 function init() {
-    const data = inquirer.prompt(questions);
-    writeToFile('./dist/README.md', generateMarkdown(data));
+    const data = promptQuestions();
+    //const createFile =
 }
 
 // Function call to initialize app
-init();
+init()
+    
