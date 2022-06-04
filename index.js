@@ -5,8 +5,7 @@ const generateMarkdown = require('./utils/generateMarkdown');
 
 
 // array of questions for user input
-function promptQuestions(){
-    return inquirer.prompt([
+const promptQuestions = [
         {
             type: "input",
             name: "title",
@@ -14,7 +13,7 @@ function promptQuestions(){
         },
         {
             type: "input",
-            name: "username",
+            name: "github",
             message: "What is your github user name?"
         },
         {
@@ -38,7 +37,7 @@ function promptQuestions(){
         },
         {
             type: "input",
-            name: "installation",
+            name: "install",
             message: "Please provide the installation instructions if needed"
         },
         {
@@ -47,10 +46,10 @@ function promptQuestions(){
             message: "Provide project usage information"
         },
         {
-            type: "confirm",
-            name: "confirmContribute",
-            message: "Would you like others to contribute to this project?",
-            default: false
+            type: "input",
+            name: "credit",
+            message: "Please list others that contributed to this project"
+            
         },
         {
             type: 'input',
@@ -60,7 +59,7 @@ function promptQuestions(){
         },
         {
             type: "input",
-            name: "test",
+            name: "tests",
             message: "Please provide the project tests"
         },
         {
@@ -82,23 +81,37 @@ function promptQuestions(){
                 return 'Please enter a valid email address!';
             },
         },
-    ]);
-} 
+];
 
 
 
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-    fs.writeFile (fileName, data, (err)=>
-    err ? console.log(err) : console.log(success)
-    );
+
+const writeToFile = (fileName, data) => {
+    fs.writeFile(fileName, data, err => {
+        // if there's an error, reject the Promise and send the error to the Promise's `.catch()` method
+        if (err) {
+        reject(err);
+        // return out of the function here to make sure the Promise doesn't accidentally execute the resolve() function as well
+        return;
+        }
+
+        // if everything went well, resolve the Promise and send the successful data to the `.then()` method
+        resolve({
+        ok: true,
+        message: 'ReadMe created!'
+        })
+    })
 }
 
-// TODO: Create a function to initialize app
-function init() {
-    const data = promptQuestions();
-    //const createFile =
+//Function to initialize the generator 
+const init = async () => {
+    try {
+        const data = await inquirer.prompt(promptQuestions);
+        writeToFile('./dist/README.md', generateMarkdown(data));
+    } catch (err) {
+        console.log(err);
+    }
 }
 
 // Function call to initialize app
