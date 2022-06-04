@@ -21,13 +21,14 @@ const promptQuestions = [
             name: "license",
             message: "Chose the appropriate license for this project: ",
             choices: [
-                "Apache 2.0",
-                "Academic",
+                "Apache",
+                "Artistic",
+                "BSD",
                 "GNU",
                 "ISC",
                 "MIT",
-                "Mozilla Pub",
-                "Open"
+                "Mozilla Public"
+                
             ]
         },
         {
@@ -54,7 +55,7 @@ const promptQuestions = [
         {
             type: 'input',
             name: 'contribute',
-            message: 'Provide contribution guidelines for this project'
+            message: 'Provide contribution guidelines for this project (https://www.contributor-covenant.org/)'
 
         },
         {
@@ -66,6 +67,11 @@ const promptQuestions = [
             type: "input",
             name: "repo",
             message: "What is your repo link?"
+        },
+        {
+            type: "input",
+            name: "screenshot",
+            message: "Please provide link to screenshot or video of the project"
         },
         {
             type: 'input',
@@ -86,22 +92,11 @@ const promptQuestions = [
 
 
 
-
+// instructions to write the file
 const writeToFile = (fileName, data) => {
-    fs.writeFile(fileName, data, err => {
-        // if there's an error, reject the Promise and send the error to the Promise's `.catch()` method
-        if (err) {
-        reject(err);
-        // return out of the function here to make sure the Promise doesn't accidentally execute the resolve() function as well
-        return;
-        }
-
-        // if everything went well, resolve the Promise and send the successful data to the `.then()` method
-        resolve({
-        ok: true,
-        message: 'ReadMe created!'
-        })
-    })
+    fs.writeFile(fileName, data, (err) =>
+        err ? console.error(err) : console.log("ReadMe Created!")
+    );
 }
 
 //Function to initialize the generator 
