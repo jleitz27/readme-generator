@@ -3,6 +3,15 @@
 
   ![badge](https://img.shields.io/badge/license-MIT-blue)<br />
 
+- [README Generator](#readme-generator)
+  - [User Story](#user-story)
+  - [Description](#description)
+  - [Installation](#installation)
+  - [License](#license)
+  - [GitHub Repo](#github-repo)
+  - [Link to video for project](#link-to-video-for-project)
+  - [Questions](#questions)
+
 ## User Story
 AS A developer<br />
 I WANT a README generator<br />
@@ -24,13 +33,14 @@ WHEN I enter my email address<br />
 THEN this is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions<br />
 WHEN I click on the links in the Table of Contents<br />
 THEN I am taken to the corresponding section of the README
-
-  ## Table of Contents
     
   ## Installation
-      npm init
+    -Clone the repo
+    -Install node.js: https://coding-boot-camp.github.io/full-stack/nodejs/how-to-install-nodejs
+    -Then in the integrated terminal for the cloned repo terminal:
+      -node index.js
 
-      npm install inquirer
+
 
 
   ## License
@@ -42,8 +52,10 @@ THEN I am taken to the corresponding section of the README
   ## GitHub Repo
 https://github.com/jleitz27/readme-generator
 
-  ## Screenshot
-  ![screenshot](https://www.screencast.com/t/MdjNBTGqEarg)<br />
+  ## Link to video for project
+  https://www.screencast.com/t/InlkyvsZZO
+  
+
 
   ## Questions
 

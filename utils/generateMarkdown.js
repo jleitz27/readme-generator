@@ -50,7 +50,11 @@ function generateMarkdown(data) {
     ${data.tests}
 
 ## Screenshot
-  ![screenshot](${data.screenshot})<br />
+<p align="center">
+  <img src="(${data.screenshot})" width="350"
+
+</p>
+
 
 ## Questions
 
