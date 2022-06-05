@@ -51,7 +51,7 @@ function generateMarkdown(data) {
 
 ## Screenshot
 <p align="center">
-  <img src="(${data.screenshot})" width="350"
+  <img src="${data.screenshot}" width="350"
 
 </p>
 

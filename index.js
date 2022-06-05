@@ -71,7 +71,7 @@ const promptQuestions = [
         {
             type: "input",
             name: "screenshot",
-            message: "Please provide link to screenshot or video of the project (should be in your repo and should look like this ./assets/images/screenshot.png)"
+            message: "Please provide link to screenshot or video of the project (should be in your repo and should look like this ../assets/images/screenshot.png)"
         },
         {
             type: 'input',
