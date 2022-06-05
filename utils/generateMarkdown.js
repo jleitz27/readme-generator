@@ -6,37 +6,53 @@ function generateMarkdown(data) {
   ![badge](https://img.shields.io/badge/license-${data.license}-blue)<br />
 
 
-  ## Description
+<a name="description"></a>
+## Description
   ${data.description}
 
-  ## Table of Contents
-    
-  ## Installation
+## Table of Contents
+
+  - [Description](#description)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Credits](#credits)
+  - [License](#license)
+  - [How to contribute](#how-to-contribute)
+  - [Tests](#tests)
+  - [Screenshot](#screenshot)
+  - [Questions](#questions)
+  
+<a name="installation"></a>
+## Installation
     ${data.install}
 
-  ## Usage
+<a name="usage"></a>
+## Usage
     ${data.usage}
 
 
-  ## Credits
+<a name="credits"></a>
+## Credits
     ${data.credit}
 
-  ## License
+<a name="license"></a>
+## License
       
   ![badge](https://img.shields.io/badge/license-${data.license}-blue)<br />
 
     This project is coverted under the ${data.license} License
 
-  ## How to contribute
+<a name="how-to-contribute"></a>
+## How to contribute
     ${data.contribute}
 
-  ## Tests
+## Tests
     ${data.tests}
 
-  ## Screenshot
+## Screenshot
   ![screenshot](${data.screenshot})<br />
 
-  ## Questions
+## Questions
 
   If you have any additional questions please contact me: <br />
       - GitHub: ${data.github}  (https://github.com/${data.github})
